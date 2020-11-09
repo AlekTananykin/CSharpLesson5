@@ -1,0 +1,9 @@
+8
+Pupil1 Name1 4 4 4
+Pupil2 Name2 3 3 3
+Pupil3 Name3 2 2 2
+Pupil4 Name4 2 2 2
+Pupil5 Name5 4 4 4
+Pupil6 Name6 5 5 5
+Pupil7 Name7 4 4 4
+Pupil7 Name8 3 3 3
