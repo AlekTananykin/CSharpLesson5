@@ -77,6 +77,10 @@ namespace Task4
             if (5 != lineArray.Length)
                 throw new PupilAccountException("Неверный формат записи ученика.");
 
+            if (lineArray[0].Length > 20 || lineArray[1].Length > 15)
+                throw new PupilAccountException("Дина имени ученика не должно " +
+                    "превышать 15 символов, а длина фамилии - 20 символов.");
+
             pupil = new Pupil();
             pupil.Surname = lineArray[0];
             pupil.Name = lineArray[1];

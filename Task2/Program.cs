@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,9 +27,12 @@ namespace Task2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите сообщение:");
+            //Console.WriteLine("Введите сообщение:");
+            //string messageText = Console.ReadLine();
 
-            string messageText = Console.ReadLine();
+            string filename = Directory.GetCurrentDirectory() + "/../../Program.cs";
+            string messageText = File.ReadAllText(filename);
+
 
             RemoveSizeWords(messageText);
             RemoveSymbolWords(messageText);
@@ -39,7 +43,7 @@ namespace Task2
             Console.WriteLine("г)Самые длинные слова: {0}", 
                 Message.GetMaxSizeWords(messageText));
 
-            PrintFrequencyAnalyse();
+            PrintFrequencyAnalyse(messageText);
 
             Console.WriteLine("\nВведите любой символ для завершения программы. ");
             Console.ReadKey();
@@ -67,12 +71,11 @@ namespace Task2
             Console.WriteLine(Message.RemoveWordsWithEnd(messageText, ch));
         }
 
-        private static void PrintFrequencyAnalyse()
+        private static void PrintFrequencyAnalyse(string messageText)
         {
             Console.WriteLine();
             Console.WriteLine("\nд) Частотный анализ текста. ");
-            Console.WriteLine("Введите текст");
-            string messageText = Console.ReadLine();
+            
             Console.WriteLine("Введите слова");
             string words = Console.ReadLine();
 

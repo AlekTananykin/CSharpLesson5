@@ -11,7 +11,8 @@ namespace Task2
     {
         private static string RemovePunctuation(string message)
         {
-            return Regex.Replace(message, @"[ ,.!?(){}\[\]-]", " ");
+            //return Regex.Replace(message, @"[\s *;:,.!?(){}\[\]-]", " ");
+            return Regex.Replace(message, @"\W", " ");
         }
 
         private static string[] ConvertToWordArray(string message)
@@ -35,7 +36,7 @@ namespace Task2
                     if (0 == resultMessage.Length)
                         resultMessage.AppendFormat(wordArray[i]);
                     else
-                        resultMessage.AppendFormat(", {0}", wordArray[i]);
+                        resultMessage.AppendFormat("{0} ", wordArray[i]);
                 }
             }
 
@@ -45,7 +46,7 @@ namespace Task2
         public static string RemoveWordsWithEnd(string message, char symbol)
         {
             StringBuilder pattern = new StringBuilder();
-            pattern.AppendFormat(@"\b[a-zA-Z0-9]*{0}\b", symbol);
+            pattern.AppendFormat(@"\b\w*{0}\b", symbol);
 
             return Regex.Replace(message, pattern.ToString(), String.Empty);
         }
